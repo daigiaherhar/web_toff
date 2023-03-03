@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../constants/app_style.dart';
 import '../../../global_widget/index.dart';
+import '../../../routes/app_pages.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);
@@ -44,9 +45,7 @@ class _LoginWidgetState extends State<LoginWidget> {
         AppStyles.sizedBoxHeight10,
         ButtonCustom(
           content: "Đăng nhập",
-          onTap: () {
-            print("!23213");
-          },
+          onTap: () => Navigator.of(context).pushNamed(Routes.INFO_STORE),
         ),
       ],
     );

@@ -58,7 +58,7 @@ class _SignupWidgetState extends State<SignupWidget> {
         ),
         AppStyles.sizedBoxHeight10,
         ButtonCustom(
-          content: "Đăng nhập",
+          content: "Đăng ký",
           onTap: () {
             print("!23213");
           },

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -14,39 +15,42 @@ class BottomAuthorityWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Flexible(
+        Expanded(
             child:
                 Center(child: InkWell(onTap: onTapNext, child: Text("Hoặc")))),
         AppStyles.sizedBoxHeight10,
-        Flexible(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Expanded(
-                child: IconText(
-                  onTap: () {
-                    print("!2321");
-                  },
-                  image: AppImages.icGoogleOriginal,
-                  content: "Google",
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.04,
+          child: IntrinsicHeight(
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.s,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(
+                  child: IconText(
+                    onTap: () {
+                      print("!2321");
+                    },
+                    image: AppImages.icGoogleOriginal,
+                    content: "Google",
+                  ),
                 ),
-              ),
-              AppStyles.sizedBoxWidth,
-              Expanded(
-                child: IconText(
-                  onTap: () {},
-                  image: AppImages.icFacebookOriginal,
-                  content: "Facebook",
+                AppStyles.sizedBoxWidth,
+                Expanded(
+                  child: IconText(
+                    onTap: () {},
+                    image: AppImages.icFacebookOriginal,
+                    content: "Facebook",
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         AppStyles.sizedBoxHeight10,
-        Flexible(
-          child: RichText(
-            textAlign: TextAlign.start,
-            text: TextSpan(
+        Expanded(
+          child: AutoSizeText.rich(
+            TextSpan(
                 style: TextStyle(
                     color: Color(0xff737373),
                     fontSize: 15,
@@ -70,6 +74,8 @@ class BottomAuthorityWidget extends StatelessWidget {
                   ),
                   TextSpan(text: " của chúng tôi"),
                 ]),
+            maxFontSize: 12,
+            minFontSize: 8,
           ),
         )
       ],
@@ -91,7 +97,7 @@ class IconText extends StatelessWidget {
       child: Container(
         padding: AppStyles.paddingAll5,
         decoration: BoxDecoration(
-            border: Border.all(color: Color(0xff737373), width: 0.5)),
+            border: Border.all(color: Color(0xffDDDDDD), width:1)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -99,7 +105,12 @@ class IconText extends StatelessWidget {
             SizedBox(
               width: 10,
             ),
-            Flexible(child: Text(content))
+            Flexible(
+                child: AutoSizeText(
+              content,
+              minFontSize: 10,
+              maxFontSize: 14,
+            ))
           ],
         ),
       ),

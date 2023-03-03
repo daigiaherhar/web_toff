@@ -14,7 +14,6 @@ class TextFieldLogin extends StatelessWidget {
       this.alignText,
       this.maxLength,
       this.focusNode,
-      this.colorOutline,
       this.fontWeight,
       this.maxLine,
       this.obscureText,
@@ -40,7 +39,6 @@ class TextFieldLogin extends StatelessWidget {
   final int? maxLength;
   final prefixIcon;
   final FocusNode? focusNode;
-  final colorOutline;
   final fontWeight;
   final int? maxLine;
   final int? minLine;
@@ -67,16 +65,16 @@ class TextFieldLogin extends StatelessWidget {
         contentPadding: contentPadding ?? EdgeInsets.all(15),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: AppColors.white50),
-            borderRadius: BorderRadius.circular(borderRadius ?? 4)),
+            borderRadius: BorderRadius.circular(borderRadius ?? 8)),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: colorOutline ?? Colors.orange),
-            borderRadius: BorderRadius.circular(borderRadius ?? 4)),
+            borderSide: BorderSide(color:  AppColors.primary500),
+            borderRadius: BorderRadius.circular(borderRadius ?? 8)),
         errorBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
-            borderRadius: BorderRadius.circular(borderRadius ?? 4)),
+            borderRadius: BorderRadius.circular(borderRadius ?? 8)),
         focusedErrorBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
-            borderRadius: BorderRadius.circular(borderRadius ?? 4)),
+            borderRadius: BorderRadius.circular(borderRadius ?? 8)),
       ),
       style: TextStyle(
           color: Colors.black,
@@ -138,7 +136,7 @@ class _TextFieldPasswordState extends State<TextFieldPassword> {
               !widget.secureText
                   ? Icons.visibility_rounded
                   : Icons.visibility_off_rounded,
-              size: 15,
+              size: 18,
             ),
           ),
         ),
@@ -146,16 +144,16 @@ class _TextFieldPasswordState extends State<TextFieldPassword> {
         contentPadding: EdgeInsets.all(15),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: AppColors.white50),
-            borderRadius: BorderRadius.circular(4)),
+            borderRadius: BorderRadius.circular(8)),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.orange),
-            borderRadius: BorderRadius.circular(4)),
+            borderSide: BorderSide(color: AppColors.primary500),
+            borderRadius: BorderRadius.circular(8)),
         errorBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
-            borderRadius: BorderRadius.circular(4)),
+            borderRadius: BorderRadius.circular(8)),
         focusedErrorBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
-            borderRadius: BorderRadius.circular(4)),
+            borderRadius: BorderRadius.circular(8)),
       ),
       style: TextStyle(
           color: Colors.black, fontSize: 16, fontWeight: FontWeight.normal),

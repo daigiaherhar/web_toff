@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../constants/app_color.dart';
@@ -14,13 +15,13 @@ class BannerAuthorityWidget extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Flexible(
-          child: Text("Giải pháp bán hàng cho sự tăng trưởng",
-              style: TextStyle(
-                  fontSize: 34,
-                  color: AppColors.primary500,
-                  fontWeight: FontWeight.bold)),
-        ),
+        AutoSizeText("Giải pháp bán hàng cho sự tăng trưởng",
+            maxFontSize: 34,
+            minFontSize: 14,
+            style: TextStyle(
+              fontSize: 34,
+                // color: AppColors.primary500,
+                fontWeight: FontWeight.bold)),
         Expanded(
             flex: 12,
             child: Image.asset(

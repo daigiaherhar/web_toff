@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -17,8 +18,10 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+    print(MediaQuery.of(context).viewInsets.horizontal);
+    print(MediaQuery.of(context).size.width);
     return Scaffold(
-      appBar: AuthorityAppBarCustom(
+      appBar: AppBarAuthorityCustom(
         title: LoginString.title,
         contentAction: LoginString.connect,
         onTapAction: () {
@@ -26,20 +29,18 @@ class LoginView extends StatelessWidget {
         },
         onTapLogo: () {},
       ),
-      backgroundColor: AppColors.white50,
       body: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.all(35),
         height: height * 0.8,
-        child: IntrinsicHeight(
-          child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        child: Row(children: [
+          if (MediaQuery.of(context).size.width > 1000)
             Expanded(
               flex: 4,
               child: BannerAuthorityWidget(),
             ),
-            Expanded(flex: 2, child: EnterLogin()),
-          ]),
-        ),
+          Expanded(flex: 2, child: EnterLogin()),
+        ]),
       ),
     );
   }
@@ -57,23 +58,30 @@ class _EnterLoginState extends State<EnterLogin> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 100,
       padding: AppStyles.paddingAll15,
-      decoration: BoxDecoration(color: Colors.white, boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withOpacity(0.5),
-          spreadRadius: 0,
-          blurRadius: 1,
-          offset: Offset(0, 2),
-        )
-      ]),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 1,
+              offset: Offset(0, 2),
+            )
+          ]),
       child: Form(
         child: Column(
             // mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(child: HeaderAuthorityWidget()),
+              Expanded(
+                  child: HeaderAuthorityWidget(
+                title: "Chào mừng đến với TOFF Seller",
+                content:
+                    "Vui lòng nhập các thông tin sau để đăng nhập vào TOFF Seller",
+              )),
               AppStyles.sizedBoxHeight10,
               Expanded(flex: 6, child: LoginWidget()),
               Expanded(
@@ -87,4 +95,3 @@ class _EnterLoginState extends State<EnterLogin> {
     );
   }
 }
-

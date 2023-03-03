@@ -1,9 +1,13 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/app_style.dart';
 
 class HeaderAuthorityWidget extends StatelessWidget {
-  const HeaderAuthorityWidget({Key? key}) : super(key: key);
+  const HeaderAuthorityWidget({Key? key, this.title = "", this.content = ""})
+      : super(key: key);
+  final String title;
+  final String content;
 
   @override
   Widget build(BuildContext context) {
@@ -11,16 +15,19 @@ class HeaderAuthorityWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Flexible(
-          child: Text(
-            "Chào mừng đến với TOFF Seller",
-            style:
-            TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          child: AutoSizeText(
+            title,
+            maxFontSize: 20,
+            minFontSize: 14,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
         AppStyles.sizedBoxHeight10,
         Flexible(
-          child: Text(
-            "Vui lòng nhập các thông tin sau để đăng nhập vào TOFF Seller",
+          child: AutoSizeText(
+            content,
+            maxFontSize: 14,
+            minFontSize: 10,
             style: TextStyle(color: Color(0xff737373)),
           ),
         ),

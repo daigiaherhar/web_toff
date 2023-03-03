@@ -1,11 +1,12 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:web_toff/constants/app_images.dart';
 
 import '../constants/app_color.dart';
 import '../constants/app_style.dart';
 
-class AuthorityAppBarCustom extends StatelessWidget with PreferredSizeWidget {
-  AuthorityAppBarCustom({
+class AppBarAuthorityCustom extends StatelessWidget with PreferredSizeWidget {
+  AppBarAuthorityCustom({
     Key? key,
     this.title = "",
     this.onTapLogo,
@@ -27,7 +28,7 @@ class AuthorityAppBarCustom extends StatelessWidget with PreferredSizeWidget {
     final width = MediaQuery.of(context).size.width;
     return Container(
       height: preferredSize.height,
-      padding: AppStyles.paddingHorizontal15,
+      padding: AppStyles.paddingHorizontal,
       decoration: BoxDecoration(color: Colors.white, boxShadow: [
         BoxShadow(
           color: Colors.grey.withOpacity(0.5),
@@ -56,8 +57,15 @@ class AuthorityAppBarCustom extends StatelessWidget with PreferredSizeWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Flexible(child: Text(contentAction,textAlign: TextAlign.center,)),
-              SizedBox(width: 2,),
+              Flexible(
+                  child: AutoSizeText(
+                contentAction,
+                minFontSize: 10,
+                textAlign: TextAlign.center,
+              )),
+              SizedBox(
+                width: 2,
+              ),
               Image.asset(
                 AppImages.icFacebook,
                 width: 20,

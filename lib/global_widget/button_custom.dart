@@ -11,11 +11,14 @@ class ButtonCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.primary500,
       alignment: Alignment.center,
+      decoration: BoxDecoration(
+          color: AppColors.primary500, borderRadius: BorderRadius.circular(8)),
       child: Material(
         color: Colors.transparent,
+        borderRadius: BorderRadius.circular(8),
         child: InkWell(
+          borderRadius: BorderRadius.circular(8),
           onTap: onTap,
           child: Padding(
             padding: AppStyles.paddingAll15,

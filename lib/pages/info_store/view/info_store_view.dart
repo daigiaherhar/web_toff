@@ -10,34 +10,36 @@ import '../../../constants/app_string.dart';
 import '../../../global_widget/index.dart';
 import '../../../routes/app_pages.dart';
 
-class SignupView extends StatelessWidget {
-  const SignupView({Key? key}) : super(key: key);
+class InfoStoreView extends StatelessWidget {
+  InfoStoreView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      appBar: AppBarAuthorityCustom(
-        title: LoginString.title,
-        contentAction: LoginString.connect,
-        onTapAction: () {
-          print("!2321");
-        },
-        onTapLogo: () {},
-      ),
-      body: Container(
-        alignment: Alignment.center,
-        padding: EdgeInsets.all(35),
-        height: height * 0.8,
-        child: Row( children: [
-          Expanded(
-            flex: 4,
-            child: BannerAuthorityWidget(),
+    return Row(
+      children: [
+        DrawerCustom(),
+        Expanded(
+          child: Scaffold(
+            appBar: AppBarSellerCustom(
+              contentAction: LoginString.connect,
+              onTapAction: () {
+                print("!2321");
+              },
+              onTapLogo: () {},
+            ),
+            body: Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(35),
+              height: height * 0.8,
+              child: GestureDetector(
+                  // onTap: () => scaffoldKey.currentState!.openDrawer(),
+                  child: Text("info")),
+            ),
           ),
-          Expanded(flex: 2, child: EnterSignup()),
-        ]),
-      ),
+        ),
+      ],
     );
   }
 }

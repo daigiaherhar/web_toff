@@ -20,8 +20,12 @@ class AppStyles {
   static final SizedBox sizedBoxWidth5 = SizedBox(
     width: 5,
   );
-  static final EdgeInsets paddingHorizontal15 =
+  static final EdgeInsets paddingHorizontal =
       EdgeInsets.symmetric(horizontal: 15);
+  static final EdgeInsets paddingHorizontal10 =
+      EdgeInsets.symmetric(horizontal: 10);
+  static final EdgeInsets paddingHorizontal5 =
+      EdgeInsets.symmetric(horizontal: 5);
   static final EdgeInsets paddingAll15 = EdgeInsets.all(15);
   static final EdgeInsets paddingAll5 = EdgeInsets.all(5);
 }
